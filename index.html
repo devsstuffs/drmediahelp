@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Privado | Odontología Estética</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            900: '#0c4a6e',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .toast { transition: opacity 0.3s ease-in-out; }
+    </style>
+</head>
+<body class="text-slate-800 antialiased flex h-screen overflow-hidden">
+
+    <aside class="w-64 bg-white border-r border-slate-200 flex flex-col hidden md:flex">
+        <div class="h-16 flex items-center px-6 border-b border-slate-200">
+            <i class="fa-solid fa-tooth text-brand-600 text-2xl mr-3"></i>
+            <span class="font-bold text-lg tracking-tight text-slate-900">Dr. Portal</span>
+        </div>
+        <nav class="flex-1 px-4 py-6 space-y-2">
+            <a href="#" class="flex items-center px-4 py-3 bg-brand-50 text-brand-600 rounded-lg font-medium">
+                <i class="fa-solid fa-layer-group w-6"></i> Vista General
+            </a>
+            <a href="#marca" class="flex items-center px-4 py-3 text-slate-600 hover:bg-slate-50 hover:text-slate-900 rounded-lg transition-colors">
+                <i class="fa-solid fa-swatchbook w-6"></i> Identidad de Marca
+            </a>
+            <a href="#papeleria" class="flex items-center px-4 py-3 text-slate-600 hover:bg-slate-50 hover:text-slate-900 rounded-lg transition-colors">
+                <i class="fa-solid fa-file-pdf w-6"></i> Papelería Digital
+            </a>
+            <a href="#redes" class="flex items-center px-4 py-3 text-slate-600 hover:bg-slate-50 hover:text-slate-900 rounded-lg transition-colors">
+                <i class="fa-brands fa-instagram w-6"></i> Aprobación de Redes
+            </a>
+        </nav>
+        <div class="p-4 border-t border-slate-200">
+            <div class="flex items-center">
+                <div class="h-8 w-8 rounded-full bg-brand-100 flex items-center justify-center text-brand-600 font-bold">
+                    D
+                </div>
+                <div class="ml-3">
+                    <p class="text-sm font-medium">Dr. Cliente</p>
+                    <p class="text-xs text-slate-500">Odontología Estética</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col h-screen overflow-y-auto">
+        <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-8">
+            <h1 class="text-xl font-semibold text-slate-800">Bienvenido a tu espacio digital</h1>
+            <span class="text-sm text-slate-500"><i class="fa-regular fa-calendar mr-2"></i>Semana del 8 al 14 de Junio</span>
+        </header>
+
+        <div class="p-8 max-w-6xl mx-auto w-full space-y-10">
+
+            <section id="marca">
+                <h2 class="text-lg font-bold text-slate-900 mb-4 border-b border-slate-200 pb-2">1. Identidad de Marca</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                        <h3 class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-4">Paleta de Colores</h3>
+                        <div class="flex space-x-4">
+                            <div class="text-center"><div class="h-16 w-16 bg-[#0f172a] rounded-lg shadow-inner mb-2"></div><span class="text-xs text-slate-500">Principal</span></div>
+                            <div class="text-center"><div class="h-16 w-16 bg-[#0284c7] rounded-lg shadow-inner mb-2"></div><span class="text-xs text-slate-500">Secundario</span></div>
+                            <div class="text-center"><div class="h-16 w-16 bg-[#38bdf8] rounded-lg shadow-inner mb-2"></div><span class="text-xs text-slate-500">Acento</span></div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col justify-center">
+                        <h3 class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-4">Logotipos Oficiales</h3>
+                        <div class="space-y-3">
+                            <button class="w-full flex items-center justify-between px-4 py-2 border border-slate-200 rounded-lg hover:border-brand-500 hover:text-brand-600 transition-colors">
+                                <span>Logo Vectorial (.SVG)</span> <i class="fa-solid fa-download"></i>
+                            </button>
+                            <button class="w-full flex items-center justify-between px-4 py-2 border border-slate-200 rounded-lg hover:border-brand-500 hover:text-brand-600 transition-colors">
+                                <span>Logo Transparente (.PNG)</span> <i class="fa-solid fa-download"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="papeleria">
+                <h2 class="text-lg font-bold text-slate-900 mb-4 border-b border-slate-200 pb-2">2. Papelería Corporativa</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex items-start space-x-4">
+                        <div class="bg-brand-50 p-3 rounded-lg text-brand-600"><i class="fa-solid fa-file-prescription fa-lg"></i></div>
+                        <div class="flex-1">
+                            <h4 class="font-semibold text-slate-800">Recetario Médico</h4>
+                            <p class="text-xs text-slate-500 mb-3">Formato PDF listo para imprimir.</p>
+                            <a href="#" class="text-sm font-medium text-brand-600 hover:underline">Descargar <i class="fa-solid fa-arrow-right text-xs ml-1"></i></a>
+                        </div>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex items-start space-x-4">
+                        <div class="bg-brand-50 p-3 rounded-lg text-brand-600"><i class="fa-solid fa-file-lines fa-lg"></i></div>
+                        <div class="flex-1">
+                            <h4 class="font-semibold text-slate-800">Hoja Membretada</h4>
+                            <p class="text-xs text-slate-500 mb-3">Formato Word editable.</p>
+                            <a href="#" class="text-sm font-medium text-brand-600 hover:underline">Descargar <i class="fa-solid fa-arrow-right text-xs ml-1"></i></a>
+                        </div>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex items-start space-x-4">
+                        <div class="bg-brand-50 p-3 rounded-lg text-brand-600"><i class="fa-solid fa-address-card fa-lg"></i></div>
+                        <div class="flex-1">
+                            <h4 class="font-semibold text-slate-800">Tarjetas de Citas</h4>
+                            <p class="text-xs text-slate-500 mb-3">PDF con guías de corte.</p>
+                            <a href="#" class="text-sm font-medium text-brand-600 hover:underline">Descargar <i class="fa-solid fa-arrow-right text-xs ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="redes">
+                <h2 class="text-lg font-bold text-slate-900 mb-4 border-b border-slate-200 pb-2">3. Aprobación de Contenido (Semana Actual)</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+                        <div class="bg-slate-100 h-40 flex items-center justify-center relative">
+                            <span class="absolute top-2 right-2 bg-white text-xs font-bold px-2 py-1 rounded shadow-sm text-slate-600"><i class="fa-brands fa-instagram text-pink-500 mr-1"></i> Reel</span>
+                            <i class="fa-solid fa-play text-slate-300 text-4xl"></i>
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col">
+                            <div class="text-xs font-semibold text-brand-600 mb-1">Lunes 8 - 18:00 hrs</div>
+                            <h4 class="font-bold text-slate-800 mb-2">Video: Beneficios del blanqueamiento</h4>
+                            <p class="text-sm text-slate-500 flex-1">"Recupera la confianza en tu sonrisa en solo 45 minutos. Agenda tu cita de valoración..."</p>
+                            <button data-id="1" class="btn-aprobar mt-4 w-full py-2 bg-slate-800 hover:bg-slate-900 text-white rounded-lg font-medium text-sm transition-colors flex items-center justify-center">
+                                <i class="fa-solid fa-check mr-2"></i> Aprobar Post
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+                        <div class="bg-slate-100 h-40 flex items-center justify-center relative">
+                            <span class="absolute top-2 right-2 bg-white text-xs font-bold px-2 py-1 rounded shadow-sm text-slate-600"><i class="fa-solid fa-images text-blue-500 mr-1"></i> Carrusel</span>
+                            <i class="fa-regular fa-image text-slate-300 text-4xl"></i>
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col">
+                            <div class="text-xs font-semibold text-brand-600 mb-1">Miércoles 10 - 12:00 hrs</div>
+                            <h4 class="font-bold text-slate-800 mb-2">Mitos sobre las caries</h4>
+                            <p class="text-sm text-slate-500 flex-1">"¿El azúcar es el único culpable? Desliza para descubrir la verdad..."</p>
+                            <button data-id="2" class="btn-aprobar mt-4 w-full py-2 bg-slate-800 hover:bg-slate-900 text-white rounded-lg font-medium text-sm transition-colors flex items-center justify-center">
+                                <i class="fa-solid fa-check mr-2"></i> Aprobar Post
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+                        <div class="bg-slate-100 h-40 flex items-center justify-center relative">
+                            <span class="absolute top-2 right-2 bg-white text-xs font-bold px-2 py-1 rounded shadow-sm text-slate-600"><i class="fa-brands fa-tiktok text-black mr-1"></i> TikTok</span>
+                            <i class="fa-solid fa-video text-slate-300 text-4xl"></i>
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col">
+                            <div class="text-xs font-semibold text-brand-600 mb-1">Viernes 12 - 19:00 hrs</div>
+                            <h4 class="font-bold text-slate-800 mb-2">Trend: Antes y Después</h4>
+                            <p class="text-sm text-slate-500 flex-1">"Transformación de carillas de resina. Audio en tendencia."</p>
+                            <button data-id="3" class="btn-aprobar mt-4 w-full py-2 bg-slate-800 hover:bg-slate-900 text-white rounded-lg font-medium text-sm transition-colors flex items-center justify-center">
+                                <i class="fa-solid fa-check mr-2"></i> Aprobar Post
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div id="toast" class="toast opacity-0 fixed bottom-5 right-5 text-white px-6 py-3 rounded-lg shadow-lg flex items-center font-medium pointer-events-none z-50">
+        </div>
+
+    <script>
+        // 1. Inicializar Supabase
+        // ¡IMPORTANTE! Reemplaza estas dos líneas con los datos de tu proyecto
+        const supabaseUrl = 'https://TU_PROYECTO.supabase.co';
+        const supabaseAnonKey = 'TU_LLAVE_ANON_KEY';
+        
+        const supabase = supabase.createClient(supabaseUrl, supabaseAnonKey);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const botonesAprobar = document.querySelectorAll('.btn-aprobar');
+            const toast = document.getElementById('toast');
+
+            botonesAprobar.forEach(boton => {
+                boton.addEventListener('click', async function() {
+                    const postId = this.getAttribute('data-id');
+                    
+                    // Cambiar estado a 'Cargando' para dar feedback al doctor
+                    const originalHtml = this.innerHTML;
+                    this.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Guardando...';
+                    this.disabled = true;
+
+                    try {
+                        // 2. Llamada a la base de datos para actualizar el estado
+                        const { data, error } = await supabase
+                            .from('aprobaciones_redes')
+                            .update({ 
+                                estado: 'aprobado',
+                                fecha_aprobacion: new Date().toISOString() 
+                            })
+                            .eq('id', postId);
+
+                        if (error) throw error;
+
+                        // 3. Éxito: Cambiar estilo visual del botón
+                        this.innerHTML = '<i class="fa-solid fa-check-double mr-2"></i> Aprobado';
+                        this.classList.remove('bg-slate-800', 'hover:bg-slate-900');
+                        this.classList.add('bg-green-100', 'text-green-700', 'border', 'border-green-300', 'cursor-default');
+
+                        // Mostrar notificación de éxito
+                        toast.classList.remove('opacity-0', 'bg-red-500');
+                        toast.classList.add('bg-green-500');
+                        toast.innerHTML = '<i class="fa-solid fa-circle-check text-xl mr-3"></i> Publicación aprobada en base de datos';
+                        
+                    } catch (error) {
+                        console.error('Error al actualizar en Supabase:', error);
+                        
+                        // Revertir el botón en caso de error
+                        this.innerHTML = originalHtml;
+                        this.disabled = false;
+                        
+                        // Mostrar notificación de error
+                        toast.classList.remove('opacity-0', 'bg-green-500');
+                        toast.classList.add('bg-red-500');
+                        toast.innerHTML = '<i class="fa-solid fa-triangle-exclamation text-xl mr-3"></i> Error al conectar. Intenta de nuevo.';
+                    }
+
+                    // Ocultar el toast después de 4 segundos
+                    setTimeout(() => {
+                        toast.classList.add('opacity-0');
+                    }, 4000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
