@@ -189,16 +189,16 @@
         </div>
 
     <script>
-        // --- 1. LÓGICA DE NAVEGACIÓN (SPA) ---
         document.addEventListener('DOMContentLoaded', () => {
             const navBtns = document.querySelectorAll('.nav-btn');
             const sections = document.querySelectorAll('.content-section');
 
             navBtns.forEach(btn => {
                 btn.addEventListener('click', function(e) {
-                    e.preventDefault();
+                    // Esto evita que aparezca el '#' en la URL y recargue la página
+                    e.preventDefault(); 
                     
-                    // Obtener la sección objetivo
+                    // Obtener la sección objetivo (marca, papeleria, redes)
                     const targetId = this.getAttribute('data-target');
 
                     // Ocultar todas las secciones
@@ -211,21 +211,22 @@
                     document.getElementById(targetId).classList.remove('hidden');
                     document.getElementById(targetId).classList.add('block');
 
-                    // Reiniciar estilos de todos los botones del menú (inactivos)
+                    // Reiniciar colores de todos los botones del menú
                     navBtns.forEach(nav => {
                         nav.classList.remove('bg-brand-50', 'text-brand-600');
                         nav.classList.add('text-slate-600', 'hover:bg-slate-50', 'hover:text-slate-900');
                     });
 
-                    // Aplicar estilos de activo al botón seleccionado
+                    // Aplicar color azul brillante al botón seleccionado
                     this.classList.remove('text-slate-600', 'hover:bg-slate-50', 'hover:text-slate-900');
                     this.classList.add('bg-brand-50', 'text-brand-600');
                 });
             });
         });
+    </script>
 
-        // --- 2. LÓGICA DE SUPABASE ---
-        // ¡IMPORTANTE! Reemplaza estas dos líneas con los datos de tu proyecto
+    <script>
+        // ¡IMPORTANTE! Reemplaza estas dos líneas con tus datos reales
         const supabaseUrl = 'https://TU_PROYECTO.supabase.co';
         const supabaseAnonKey = 'TU_LLAVE_ANON_KEY';
         
