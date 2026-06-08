@@ -6,9 +6,7 @@
     <title>Portal Privado | Odontología Estética</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
     <script>
@@ -24,9 +22,7 @@
                             900: '#0c4a6e',
                         }
                     },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
                 }
             }
         }
@@ -35,6 +31,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
         .toast { transition: opacity 0.3s ease-in-out; }
+        .content-section { transition: all 0.3s ease; }
     </style>
 </head>
 <body class="text-slate-800 antialiased flex h-screen overflow-hidden">
@@ -45,24 +42,22 @@
             <span class="font-bold text-lg tracking-tight text-slate-900">Dr. Portal</span>
         </div>
         <nav class="flex-1 px-4 py-6 space-y-2">
-            <a href="#" data-target="marca" class="nav-btn flex items-center px-4 py-3 bg-brand-50 text-brand-600 rounded-lg font-medium transition-colors">
+            <a href="#" data-target="marca" class="nav-btn flex items-center px-4 py-3 bg-brand-50 text-brand-600 rounded-lg font-medium">
                 <i class="fa-solid fa-swatchbook w-6"></i> Identidad de Marca
             </a>
-            <a href="#" data-target="papeleria" class="nav-btn flex items-center px-4 py-3 text-slate-600 hover:bg-slate-50 hover:text-slate-900 rounded-lg transition-colors">
+            <a href="#" data-target="papeleria" class="nav-btn flex items-center px-4 py-3 text-slate-600 hover:bg-slate-50 hover:text-slate-900 rounded-lg">
                 <i class="fa-solid fa-file-pdf w-6"></i> Papelería Digital
             </a>
-            <a href="#" data-target="redes" class="nav-btn flex items-center px-4 py-3 text-slate-600 hover:bg-slate-50 hover:text-slate-900 rounded-lg transition-colors">
+            <a href="#" data-target="redes" class="nav-btn flex items-center px-4 py-3 text-slate-600 hover:bg-slate-50 hover:text-slate-900 rounded-lg">
                 <i class="fa-brands fa-instagram w-6"></i> Aprobación de Redes
             </a>
         </nav>
         <div class="p-4 border-t border-slate-200">
             <div class="flex items-center">
-                <div class="h-8 w-8 rounded-full bg-brand-100 flex items-center justify-center text-brand-600 font-bold">
-                    D
-                </div>
-                <div class="ml-3">
-                    <p class="text-sm font-medium">Dr. Cliente</p>
-                    <p class="text-xs text-slate-500">Odontología Estética</p>
+                <div class="h-8 w-8 rounded-full bg-brand-100 flex items-center justify-center text-brand-600 font-bold">D</div>
+                <div class="ml-3 text-xs">
+                    <p class="font-medium">Dr. Cliente</p>
+                    <p class="text-slate-500">Odontología Estética</p>
                 </div>
             </div>
         </div>
@@ -70,8 +65,8 @@
 
     <main class="flex-1 flex flex-col h-screen overflow-y-auto">
         <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-8">
-            <h1 class="text-xl font-semibold text-slate-800">Bienvenido a tu espacio digital</h1>
-            <span class="text-sm text-slate-500"><i class="fa-regular fa-calendar mr-2"></i>Semana del 8 al 14 de Junio</span>
+            <h1 class="text-xl font-semibold text-slate-800">Panel de Control</h1>
+            <span class="text-sm text-slate-500"><i class="fa-regular fa-calendar mr-2"></i>Junio 2026</span>
         </header>
 
         <div class="p-8 max-w-6xl mx-auto w-full">
@@ -104,180 +99,175 @@
             <section id="papeleria" class="content-section hidden">
                 <h2 class="text-lg font-bold text-slate-900 mb-4 border-b border-slate-200 pb-2">2. Papelería Corporativa</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex items-start space-x-4">
-                        <div class="bg-brand-50 p-3 rounded-lg text-brand-600"><i class="fa-solid fa-file-prescription fa-lg"></i></div>
-                        <div class="flex-1">
-                            <h4 class="font-semibold text-slate-800">Recetario Médico</h4>
-                            <p class="text-xs text-slate-500 mb-3">Formato PDF listo para imprimir.</p>
-                            <a href="#" class="text-sm font-medium text-brand-600 hover:underline">Descargar <i class="fa-solid fa-arrow-right text-xs ml-1"></i></a>
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex flex-col">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="bg-brand-50 p-3 rounded-lg text-brand-600"><i class="fa-solid fa-file-prescription fa-lg"></i></div>
+                            <div>
+                                <h4 class="font-semibold text-slate-800 leading-tight">Recetario Médico</h4>
+                                <p class="text-xs text-slate-500">Formato PDF listo para imprimir.</p>
+                            </div>
                         </div>
+                        <button onclick="generateDocument('recetario')" class="mt-auto text-sm font-medium text-brand-600 hover:text-brand-700 flex items-center">
+                            Generar e Imprimir <i class="fa-solid fa-arrow-up-right-from-square ml-2 text-xs"></i>
+                        </button>
                     </div>
-                    <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex items-start space-x-4">
-                        <div class="bg-brand-50 p-3 rounded-lg text-brand-600"><i class="fa-solid fa-file-lines fa-lg"></i></div>
-                        <div class="flex-1">
-                            <h4 class="font-semibold text-slate-800">Hoja Membretada</h4>
-                            <p class="text-xs text-slate-500 mb-3">Formato Word editable.</p>
-                            <a href="#" class="text-sm font-medium text-brand-600 hover:underline">Descargar <i class="fa-solid fa-arrow-right text-xs ml-1"></i></a>
+
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex flex-col">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="bg-brand-50 p-3 rounded-lg text-brand-600"><i class="fa-solid fa-file-lines fa-lg"></i></div>
+                            <div>
+                                <h4 class="font-semibold text-slate-800 leading-tight">Hoja Membretada</h4>
+                                <p class="text-xs text-slate-500">Formato A4 para presupuestos.</p>
+                            </div>
                         </div>
+                        <button onclick="generateDocument('hoja')" class="mt-auto text-sm font-medium text-brand-600 hover:text-brand-700 flex items-center">
+                            Generar e Imprimir <i class="fa-solid fa-arrow-up-right-from-square ml-2 text-xs"></i>
+                        </button>
                     </div>
-                    <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex items-start space-x-4">
-                        <div class="bg-brand-50 p-3 rounded-lg text-brand-600"><i class="fa-solid fa-address-card fa-lg"></i></div>
-                        <div class="flex-1">
-                            <h4 class="font-semibold text-slate-800">Tarjetas de Citas</h4>
-                            <p class="text-xs text-slate-500 mb-3">PDF con guías de corte.</p>
-                            <a href="#" class="text-sm font-medium text-brand-600 hover:underline">Descargar <i class="fa-solid fa-arrow-right text-xs ml-1"></i></a>
+
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex flex-col">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="bg-brand-50 p-3 rounded-lg text-brand-600"><i class="fa-solid fa-address-card fa-lg"></i></div>
+                            <div>
+                                <h4 class="font-semibold text-slate-800 leading-tight">Tarjetas de Citas</h4>
+                                <p class="text-xs text-slate-500">Formato doble vista (9x5cm).</p>
+                            </div>
                         </div>
+                        <button onclick="generateDocument('tarjeta')" class="mt-auto text-sm font-medium text-brand-600 hover:text-brand-700 flex items-center">
+                            Generar e Imprimir <i class="fa-solid fa-arrow-up-right-from-square ml-2 text-xs"></i>
+                        </button>
                     </div>
                 </div>
             </section>
 
             <section id="redes" class="content-section hidden">
-                <h2 class="text-lg font-bold text-slate-900 mb-4 border-b border-slate-200 pb-2">3. Aprobación de Contenido (Semana Actual)</h2>
+                <h2 class="text-lg font-bold text-slate-900 mb-4 border-b border-slate-200 pb-2">3. Aprobación de Contenido</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    
                     <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
-                        <div class="bg-slate-100 h-40 flex items-center justify-center relative">
-                            <span class="absolute top-2 right-2 bg-white text-xs font-bold px-2 py-1 rounded shadow-sm text-slate-600"><i class="fa-brands fa-instagram text-pink-500 mr-1"></i> Reel</span>
-                            <i class="fa-solid fa-play text-slate-300 text-4xl"></i>
-                        </div>
+                        <div class="bg-slate-100 h-40 flex items-center justify-center relative"><i class="fa-solid fa-play text-slate-300 text-4xl"></i></div>
                         <div class="p-5 flex-1 flex flex-col">
                             <div class="text-xs font-semibold text-brand-600 mb-1">Lunes 8 - 18:00 hrs</div>
                             <h4 class="font-bold text-slate-800 mb-2">Video: Beneficios del blanqueamiento</h4>
-                            <p class="text-sm text-slate-500 flex-1">"Recupera la confianza en tu sonrisa en solo 45 minutos. Agenda tu cita de valoración..."</p>
+                            <p class="text-sm text-slate-500 flex-1 italic">"Recupera la confianza en tu sonrisa..."</p>
                             <button data-id="1" class="btn-aprobar mt-4 w-full py-2 bg-slate-800 hover:bg-slate-900 text-white rounded-lg font-medium text-sm transition-colors flex items-center justify-center">
                                 <i class="fa-solid fa-check mr-2"></i> Aprobar Post
                             </button>
                         </div>
                     </div>
-
-                    <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
-                        <div class="bg-slate-100 h-40 flex items-center justify-center relative">
-                            <span class="absolute top-2 right-2 bg-white text-xs font-bold px-2 py-1 rounded shadow-sm text-slate-600"><i class="fa-solid fa-images text-blue-500 mr-1"></i> Carrusel</span>
-                            <i class="fa-regular fa-image text-slate-300 text-4xl"></i>
-                        </div>
-                        <div class="p-5 flex-1 flex flex-col">
-                            <div class="text-xs font-semibold text-brand-600 mb-1">Miércoles 10 - 12:00 hrs</div>
-                            <h4 class="font-bold text-slate-800 mb-2">Mitos sobre las caries</h4>
-                            <p class="text-sm text-slate-500 flex-1">"¿El azúcar es el único culpable? Desliza para descubrir la verdad..."</p>
-                            <button data-id="2" class="btn-aprobar mt-4 w-full py-2 bg-slate-800 hover:bg-slate-900 text-white rounded-lg font-medium text-sm transition-colors flex items-center justify-center">
-                                <i class="fa-solid fa-check mr-2"></i> Aprobar Post
-                            </button>
-                        </div>
                     </div>
-
-                    <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
-                        <div class="bg-slate-100 h-40 flex items-center justify-center relative">
-                            <span class="absolute top-2 right-2 bg-white text-xs font-bold px-2 py-1 rounded shadow-sm text-slate-600"><i class="fa-brands fa-tiktok text-black mr-1"></i> TikTok</span>
-                            <i class="fa-solid fa-video text-slate-300 text-4xl"></i>
-                        </div>
-                        <div class="p-5 flex-1 flex flex-col">
-                            <div class="text-xs font-semibold text-brand-600 mb-1">Viernes 12 - 19:00 hrs</div>
-                            <h4 class="font-bold text-slate-800 mb-2">Trend: Antes y Después</h4>
-                            <p class="text-sm text-slate-500 flex-1">"Transformación de carillas de resina. Audio en tendencia."</p>
-                            <button data-id="3" class="btn-aprobar mt-4 w-full py-2 bg-slate-800 hover:bg-slate-900 text-white rounded-lg font-medium text-sm transition-colors flex items-center justify-center">
-                                <i class="fa-solid fa-check mr-2"></i> Aprobar Post
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
             </section>
         </div>
     </main>
 
-    <div id="toast" class="toast opacity-0 fixed bottom-5 right-5 text-white px-6 py-3 rounded-lg shadow-lg flex items-center font-medium pointer-events-none z-50">
-        </div>
+    <div id="toast" class="toast opacity-0 fixed bottom-5 right-5 text-white px-6 py-3 rounded-lg shadow-lg flex items-center font-medium pointer-events-none z-50"></div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const navBtns = document.querySelectorAll('.nav-btn');
-            const sections = document.querySelectorAll('.content-section');
-
-            navBtns.forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    // Esto evita que aparezca el '#' en la URL y recargue la página
-                    e.preventDefault(); 
-                    
-                    // Obtener la sección objetivo (marca, papeleria, redes)
-                    const targetId = this.getAttribute('data-target');
-
-                    // Ocultar todas las secciones
-                    sections.forEach(sec => {
-                        sec.classList.remove('block');
-                        sec.classList.add('hidden');
-                    });
-
-                    // Mostrar solo la sección seleccionada
-                    document.getElementById(targetId).classList.remove('hidden');
-                    document.getElementById(targetId).classList.add('block');
-
-                    // Reiniciar colores de todos los botones del menú
-                    navBtns.forEach(nav => {
-                        nav.classList.remove('bg-brand-50', 'text-brand-600');
-                        nav.classList.add('text-slate-600', 'hover:bg-slate-50', 'hover:text-slate-900');
-                    });
-
-                    // Aplicar color azul brillante al botón seleccionado
-                    this.classList.remove('text-slate-600', 'hover:bg-slate-50', 'hover:text-slate-900');
-                    this.classList.add('bg-brand-50', 'text-brand-600');
-                });
-            });
-        });
-    </script>
-
-    <script>
-        // ¡IMPORTANTE! Reemplaza estas dos líneas con tus datos reales
+        // --- 1. CONFIGURACIÓN SUPABASE ---
         const supabaseUrl = 'https://TU_PROYECTO.supabase.co';
         const supabaseAnonKey = 'TU_LLAVE_ANON_KEY';
-        
         const supabase = supabase.createClient(supabaseUrl, supabaseAnonKey);
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const botonesAprobar = document.querySelectorAll('.btn-aprobar');
-            const toast = document.getElementById('toast');
+        // --- 2. LÓGICA DE NAVEGACIÓN ---
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('data-target');
+                document.querySelectorAll('.content-section').forEach(sec => sec.classList.replace('block', 'hidden'));
+                document.getElementById(targetId).classList.replace('hidden', 'block');
+                document.querySelectorAll('.nav-btn').forEach(nb => nb.classList.remove('bg-brand-50', 'text-brand-600'));
+                this.classList.add('bg-brand-50', 'text-brand-600');
+            });
+        });
 
-            botonesAprobar.forEach(boton => {
-                boton.addEventListener('click', async function() {
-                    const postId = this.getAttribute('data-id');
-                    
-                    const originalHtml = this.innerHTML;
-                    this.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Guardando...';
-                    this.disabled = true;
+        // --- 3. GENERADOR DE DOCUMENTOS (NUEVA PESTAÑA) ---
+        function generateDocument(type) {
+            const printWindow = window.open('', '_blank');
+            let content = "";
+            let styles = `
+                <style>
+                    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+                    body { font-family: 'Inter', sans-serif; color: #1e293b; margin: 0; padding: 0; }
+                    .document { width: 210mm; height: 297mm; padding: 20mm; margin: auto; position: relative; box-sizing: border-box; }
+                    .header { border-bottom: 2px solid #0284c7; padding-bottom: 15px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: flex-end; }
+                    .doctor-name { font-size: 22pt; font-weight: bold; margin: 0; }
+                    .specialty { color: #0284c7; text-transform: uppercase; letter-spacing: 1px; font-size: 10pt; }
+                    .footer { position: absolute; bottom: 20mm; left: 20mm; right: 20mm; border-top: 1px solid #e2e8f0; padding-top: 10px; font-size: 9pt; text-align: center; color: #64748b; }
+                    .print-btn { position: fixed; top: 20px; right: 20px; padding: 10px 20px; background: #0284c7; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+                    @media print { .print-btn { display: none; } }
+                </style>
+            `;
 
-                    try {
-                        const { data, error } = await supabase
-                            .from('aprobaciones_redes')
-                            .update({ 
-                                estado: 'aprobado',
-                                fecha_aprobacion: new Date().toISOString() 
-                            })
-                            .eq('id', postId);
+            if(type === 'recetario') {
+                content = `
+                    <div class="document">
+                        <button class="print-btn" onclick="window.print()">Imprimir Receta</button>
+                        <div class="header">
+                            <div><h1 class="doctor-name">Dr. Víctor Hugo Valdez G.</h1><p class="specialty">Odontología Estética y Rehabilitación</p></div>
+                            <div style="text-align:right; font-size:9pt;">Céd. Prof. XXXXXX<br>Céd. Esp. XXXXXX</div>
+                        </div>
+                        <div style="margin-bottom: 40px;">Paciente: __________________________________  Edad: _____  Fecha: ___/___/___</div>
+                        <div style="font-size: 30pt; color: #e2e8f0; margin-bottom: 20px;">Rp/</div>
+                        <div style="height: 150mm; border-bottom: 1px dashed #e2e8f0;"></div>
+                        <div class="footer">Dirección del Consultorio, Ciudad | WhatsApp: 55 1234 5678 | COFEPRIS: XXXXXXXX</div>
+                    </div>
+                `;
+            } else if(type === 'hoja') {
+                content = `
+                    <div class="document">
+                        <button class="print-btn" onclick="window.print()">Imprimir Hoja</button>
+                        <div class="header">
+                            <div><h1 class="doctor-name">Dr. Víctor Hugo Valdez G.</h1></div>
+                            <p class="specialty">Odontología Estética</p>
+                        </div>
+                        <div style="height: 200mm;"></div>
+                        <div class="footer">Calle e Instalaciones #123, Col. Centro | Correo: contacto@doctor.com | Web: devsstuffs.github.io</div>
+                    </div>
+                `;
+            } else if(type === 'tarjeta') {
+                styles += `<style>.card-container { display: flex; gap: 20px; flex-wrap: wrap; }.card { width: 90mm; height: 50mm; border: 1px solid #e2e8f0; padding: 10mm; display: flex; flex-direction: column; justify-content: center; position: relative; }</style>`;
+                content = `
+                    <div class="document">
+                        <button class="print-btn" onclick="window.print()">Imprimir Tarjetas</button>
+                        <h2 style="text-align:center; color:#64748b; margin-bottom:30px;">Plantilla de Tarjetas (9x5cm)</h2>
+                        <div class="card-container">
+                            <div class="card">
+                                <h2 style="margin:0; font-size:14pt;">Dr. Víctor Hugo Valdez G.</h2>
+                                <p style="color:#0284c7; font-size:8pt; margin:2px 0 10px;">ODONTOLOGÍA ESTÉTICA</p>
+                                <p style="font-size:7pt; color:#64748b;">WhatsApp: 55 1234 5678<br>Instagram: @doctor_estetica</p>
+                            </div>
+                            <div class="card" style="background:#f8fafc;">
+                                <p style="font-size:9pt; font-weight:bold; margin-bottom:5px; border-bottom:1px solid #0284c7;">PRÓXIMA CITA</p>
+                                <p style="font-size:8pt; margin:5px 0;">Fecha: ___/___/___  Hora: ___:___</p>
+                                <p style="font-size:6pt; color:#94a3b8; margin-top:10px;">Favor de confirmar 24h antes.</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
 
-                        if (error) throw error;
+            printWindow.document.write(`<html><head>${styles}</head><body>${content}</body></html>`);
+            printWindow.document.close();
+        }
 
-                        this.innerHTML = '<i class="fa-solid fa-check-double mr-2"></i> Aprobado';
-                        this.classList.remove('bg-slate-800', 'hover:bg-slate-900');
-                        this.classList.add('bg-green-100', 'text-green-700', 'border', 'border-green-300', 'cursor-default');
+        // --- 4. LÓGICA SUPABASE (APROBACIÓN) ---
+        document.querySelectorAll('.btn-aprobar').forEach(boton => {
+            boton.addEventListener('click', async function() {
+                const postId = this.getAttribute('data-id');
+                this.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Guardando...';
+                this.disabled = true;
 
-                        toast.classList.remove('opacity-0', 'bg-red-500');
-                        toast.classList.add('bg-green-500');
-                        toast.innerHTML = '<i class="fa-solid fa-circle-check text-xl mr-3"></i> Publicación aprobada en base de datos';
-                        
-                    } catch (error) {
-                        console.error('Error al actualizar en Supabase:', error);
-                        
-                        this.innerHTML = originalHtml;
-                        this.disabled = false;
-                        
-                        toast.classList.remove('opacity-0', 'bg-green-500');
-                        toast.classList.add('bg-red-500');
-                        toast.innerHTML = '<i class="fa-solid fa-triangle-exclamation text-xl mr-3"></i> Error al conectar. Intenta de nuevo.';
-                    }
-
-                    setTimeout(() => {
-                        toast.classList.add('opacity-0');
-                    }, 4000);
-                });
+                try {
+                    const { error } = await supabase.from('aprobaciones_redes').update({ estado: 'aprobado', fecha_aprobacion: new Date().toISOString() }).eq('id', postId);
+                    if (error) throw error;
+                    this.innerHTML = '<i class="fa-solid fa-check-double mr-2"></i> Aprobado';
+                    this.classList.add('bg-green-100', 'text-green-700', 'border', 'border-green-300');
+                    document.getElementById('toast').className = "toast fixed bottom-5 right-5 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg opacity-100";
+                } catch (e) {
+                    this.disabled = false;
+                    document.getElementById('toast').className = "toast fixed bottom-5 right-5 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg opacity-100";
+                    document.getElementById('toast').innerHTML = "Error de conexión";
+                }
+                setTimeout(() => document.getElementById('toast').classList.add('opacity-0'), 3000);
             });
         });
     </script>
